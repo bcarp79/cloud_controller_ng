@@ -16,10 +16,12 @@ module VCAP::CloudController
 
     attr_reader :staging_response
 
-    def initialize(memory_limit_calculator: QuotaValidatingStagingMemoryCalculator.new,
-      disk_limit_calculator: StagingDiskCalculator.new,
-      environment_presenter: StagingEnvironmentBuilder.new)
+    def initialize(user_audit_info: UserAuditInfo.from_context(SecurityContext),
+                   memory_limit_calculator: QuotaValidatingStagingMemoryCalculator.new,
+                   disk_limit_calculator: StagingDiskCalculator.new,
+                   environment_presenter: StagingEnvironmentBuilder.new)
 
+      @user_audit_info = user_audit_info
       @memory_limit_calculator = memory_limit_calculator
       @disk_limit_calculator   = disk_limit_calculator
       @environment_builder     = environment_presenter
@@ -44,6 +46,12 @@ module VCAP::CloudController
         staging_details.staging_guid = build.guid
         lifecycle.create_lifecycle_data_model(build)
         Repositories::AppUsageEventRepository.new.create_from_build(build, 'STAGING_STARTED')
+        app = package.app
+        Repositories::BuildEventRepository.record_build_create(build,
+                                                               @user_audit_info,
+                                                               app.name,
+                                                               app.space_guid,
+                                                               app.organization_guid)
       end
 
       logger.info("build created: #{build.guid}")

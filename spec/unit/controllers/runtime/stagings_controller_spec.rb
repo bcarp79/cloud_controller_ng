@@ -69,6 +69,7 @@ module VCAP::CloudController
     before do
       Fog.unmock!
       TestConfig.override(staging_config)
+      set_current_user_as_admin(user: User.make(guid: '1234'), email: 'joe@joe.com', user_name: 'briggs')
     end
 
     after { FileUtils.rm_rf(workspace) }
@@ -312,6 +313,7 @@ module VCAP::CloudController
 
         it "returns a JSON body with full url and basic auth to query for job's status" do
           post url, upload_req
+          expect(last_response.status).to eq(200), "Response Body: #{last_response.body}"
 
           job         = Delayed::Job.last
           config      = VCAP::CloudController::Config.config
@@ -498,6 +500,32 @@ module VCAP::CloudController
           expect(job).to be_a_fully_wrapped_job_of VCAP::CloudController::Jobs::V3::DropletUpload
           inner_job = job.payload_object.handler.job.job
           expect(inner_job.droplet_guid).to eq(droplet.guid)
+        end
+
+        it 'creates an audit.app.droplet.create event' do
+          expect {
+            post url, upload_req
+          }.to change {
+            Event.count
+          }.by(1)
+
+          event = Event.last
+          droplet = DropletModel.last
+          expect(event.type).to eq('audit.app.droplet.create')
+          expect(event.actor).to eq('1234')
+          expect(event.actor_type).to eq('user')
+          expect(event.actor_name).to eq('joe@joe.com')
+          expect(event.actor_username).to eq('briggs')
+          expect(event.actee).to eq(app_obj.guid)
+          expect(event.actee_type).to eq('app')
+          expect(event.actee_name).to eq(app_obj.name)
+          expect(event.timestamp).to be
+          expect(event.space_guid).to eq(app_obj.space_guid)
+          expect(event.organization_guid).to eq(app_obj.space.organization.guid)
+          expect(event.metadata).to eq({
+                                         'droplet_guid' => droplet.guid,
+                                         'package_guid' => package.guid,
+                                       })
         end
 
         it "returns a JSON body with full url and basic auth to query for job's status" do
