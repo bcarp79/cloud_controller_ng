@@ -74,7 +74,7 @@ GEM
       rack (>= 1.4.5, < 2.0)
       thor (>= 0.15.2, < 2.0)
       tilt (~> 1.4.1, < 2.0)
-    middleman-gh-pages (0.0.3)
+    middleman-gh-pages (0.4.1)
       rake (> 0.9.3)
     middleman-sprockets (3.4.2)
       middleman-core (>= 3.3)
@@ -101,7 +101,7 @@ GEM
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (10.4.2)
+    rake (13.0.1)
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -140,12 +140,12 @@ PLATFORMS
 DEPENDENCIES
   middleman
   middleman-autoprefixer
-  middleman-gh-pages
+  middleman-gh-pages (>= 0.0.3)
   middleman-syntax
-  rake
+  rake (>= 12.3.3)
   redcarpet
   rouge
   therubyracer
 
 BUNDLED WITH
-   1.11.2
+   1.17.3
