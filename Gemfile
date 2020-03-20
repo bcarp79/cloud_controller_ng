@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'addressable'
-gem 'railties'
+gem 'railties', '>= 5.2.4.2'
 gem 'rake'
 
 # nats wants to lock us to an older version. we already use eventmachine 1.0.9, so do not want a downgrade.
@@ -12,7 +12,7 @@ gem 'fog-aws'
 gem 'fog-local'
 gem 'fog-openstack'
 gem 'fog-google'
-gem 'google-api-client', '~> 0.8.6' # required for fog-google
+gem 'google-api-client', '~> 0.8.7' # required for fog-google
 
 gem 'i18n'
 gem 'nokogiri', '~> 1.7.2'
@@ -30,18 +30,18 @@ gem 'httpclient'
 gem 'steno'
 gem 'cloudfront-signer'
 gem 'vcap_common', '~> 4.0.4'
-gem 'allowy'
+gem 'allowy', '>= 2.1.0'
 gem 'loggregator_emitter', '~> 5.0'
 gem 'delayed_job_sequel', git: 'https://github.com/cloudfoundry/delayed_job_sequel.git'
 gem 'thin'
 gem 'newrelic_rpm', '>= 3.12'
-gem 'clockwork', require: false
+gem 'clockwork', '>= 2.0.0', require: false
 gem 'statsd-ruby'
-gem 'activemodel'
-gem 'actionpack'
-gem 'actionview'
+gem 'activemodel', '>= 4.2.8'
+gem 'actionpack', '>= 5.2.4.2'
+gem 'actionview', '>= 5.2.4.2'
 gem 'public_suffix', '~> 1.0'
-gem 'protobuf'
+gem 'protobuf', '>= 3.6.12'
 gem 'net-ssh'
 
 # Requiring this particular commit to get a fix to a race condition when subscribing before a connection is made.
@@ -54,7 +54,7 @@ gem 'nats', git: 'https://github.com/nats-io/ruby-nats', ref: '8571cf9d685b60630
 gem 'vcap-concurrency', git: 'https://github.com/cloudfoundry/vcap-concurrency.git', ref: '2a5b0179'
 gem 'cf-uaa-lib', '~> 3.7.0'
 gem 'cf-message-bus', '~> 0.3.0'
-gem 'bits_service_client'
+gem 'bits_service_client', '>= 0.2.1'
 
 group :db do
   gem 'mysql2', '0.4.5'
@@ -67,7 +67,7 @@ group :operations do
 end
 
 group :test do
-  gem 'codeclimate-test-reporter', require: false
+  gem 'codeclimate-test-reporter', '>= 1.0.3', require: false
   gem 'fakefs', require: 'fakefs/safe'
   gem 'machinist', '~> 1.0.6'
   gem 'parallel_tests'
@@ -77,7 +77,7 @@ group :test do
   gem 'rspec_api_documentation', git: 'https://github.com/zipmark/rspec_api_documentation.git'
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.5.0'
   gem 'rubocop'
   gem 'timecop'
   gem 'webmock'
