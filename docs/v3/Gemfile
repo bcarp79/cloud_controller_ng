@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'middleman'
+gem 'middleman', '>= 4.3.7'
 gem 'middleman-gh-pages'
-gem 'middleman-syntax'
-gem 'middleman-autoprefixer'
+gem 'middleman-syntax', '>= 2.1.0'
+gem 'middleman-autoprefixer', '>= 2.6.1'
 gem 'rouge'
 gem 'rake'
 gem 'redcarpet'
