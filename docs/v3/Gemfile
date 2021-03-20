@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'middleman'
+gem 'middleman', '>= 4.3.8'
 gem 'middleman-gh-pages'
 gem 'middleman-syntax'
 gem 'middleman-autoprefixer'
