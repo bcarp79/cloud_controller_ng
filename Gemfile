@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'addressable'
+gem 'addressable', '>= 2.8.0'
 gem 'railties'
 gem 'rake'
 
@@ -12,7 +12,7 @@ gem 'fog-aws'
 gem 'fog-local'
 gem 'fog-openstack'
 gem 'fog-google'
-gem 'google-api-client', '~> 0.8.6' # required for fog-google
+gem 'google-api-client', '~> 0.8.7' # required for fog-google
 
 gem 'i18n'
 gem 'nokogiri', '~> 1.7.2'
@@ -80,7 +80,7 @@ group :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'timecop'
-  gem 'webmock'
+  gem 'webmock', '>= 1.20.4'
 end
 
 group :development do
