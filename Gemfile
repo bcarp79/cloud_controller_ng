@@ -23,7 +23,7 @@ gem 'sequel'
 gem 'sinatra', '~> 1.4'
 gem 'sinatra-contrib'
 gem 'multi_json'
-gem 'yajl-ruby'
+gem 'yajl-ruby', '>= 1.4.2'
 gem 'mime-types', '~> 2.6.2'
 gem 'membrane', '~> 1.0'
 gem 'httpclient'
@@ -53,7 +53,7 @@ gem 'nats', git: 'https://github.com/nats-io/ruby-nats', ref: '8571cf9d685b60630
 # firewalls
 gem 'vcap-concurrency', git: 'https://github.com/cloudfoundry/vcap-concurrency.git', ref: '2a5b0179'
 gem 'cf-uaa-lib', '~> 3.7.0'
-gem 'cf-message-bus', '~> 0.3.0'
+gem 'cf-message-bus', '~> 0.3.4'
 gem 'bits_service_client'
 
 group :db do
