@@ -12,7 +12,7 @@ gem 'fog-aws'
 gem 'fog-local'
 gem 'fog-openstack'
 gem 'fog-google'
-gem 'google-api-client', '~> 0.8.6' # required for fog-google
+gem 'google-api-client', '~> 0.8.7' # required for fog-google
 
 gem 'i18n'
 gem 'nokogiri', '~> 1.7.2'
