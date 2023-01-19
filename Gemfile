@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'addressable'
-gem 'railties'
+gem 'railties', '>= 6.1.7.1'
 gem 'rake'
 
 # nats wants to lock us to an older version. we already use eventmachine 1.0.9, so do not want a downgrade.
@@ -12,7 +12,7 @@ gem 'fog-aws'
 gem 'fog-local'
 gem 'fog-openstack'
 gem 'fog-google'
-gem 'google-api-client', '~> 0.8.6' # required for fog-google
+gem 'google-api-client', '~> 0.9.0' # required for fog-google
 
 gem 'i18n'
 gem 'nokogiri', '~> 1.7.2'
@@ -20,8 +20,8 @@ gem 'unf'
 gem 'netaddr'
 gem 'rfc822'
 gem 'sequel'
-gem 'sinatra', '~> 1.4'
-gem 'sinatra-contrib'
+gem 'sinatra', '~> 2.0', '>= 2.0.0'
+gem 'sinatra-contrib', '>= 2.0.0'
 gem 'multi_json'
 gem 'yajl-ruby'
 gem 'mime-types', '~> 2.6.2'
@@ -37,9 +37,9 @@ gem 'thin'
 gem 'newrelic_rpm', '>= 3.12'
 gem 'clockwork', require: false
 gem 'statsd-ruby'
-gem 'activemodel'
-gem 'actionpack'
-gem 'actionview'
+gem 'activemodel', '>= 6.1.7.1'
+gem 'actionpack', '>= 6.1.7.1'
+gem 'actionview', '>= 6.1.7.1'
 gem 'public_suffix', '~> 1.0'
 gem 'protobuf'
 gem 'net-ssh'
@@ -53,7 +53,7 @@ gem 'nats', git: 'https://github.com/nats-io/ruby-nats', ref: '8571cf9d685b60630
 # firewalls
 gem 'vcap-concurrency', git: 'https://github.com/cloudfoundry/vcap-concurrency.git', ref: '2a5b0179'
 gem 'cf-uaa-lib', '~> 3.7.0'
-gem 'cf-message-bus', '~> 0.3.0'
+gem 'cf-message-bus', '~> 0.3.4'
 gem 'bits_service_client'
 
 group :db do
@@ -77,7 +77,7 @@ group :test do
   gem 'rspec_api_documentation', git: 'https://github.com/zipmark/rspec_api_documentation.git'
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.5.0'
   gem 'rubocop'
   gem 'timecop'
   gem 'webmock'
