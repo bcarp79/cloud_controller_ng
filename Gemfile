@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'addressable'
-gem 'railties'
+gem 'railties', '>= 6.1.7.9'
 gem 'rake'
 
 # nats wants to lock us to an older version. we already use eventmachine 1.0.9, so do not want a downgrade.
@@ -38,7 +38,7 @@ gem 'newrelic_rpm', '>= 3.12'
 gem 'clockwork', require: false
 gem 'statsd-ruby'
 gem 'activemodel'
-gem 'actionpack'
+gem 'actionpack', '>= 6.1.7.9'
 gem 'actionview'
 gem 'public_suffix', '~> 1.0'
 gem 'protobuf'
