@@ -8,7 +8,7 @@ gem 'rake'
 gem 'eventmachine', '~> 1.0.9'
 
 gem 'fog-azure-rm'
-gem 'fog-aws'
+gem 'fog-aws', '>= 3.29.0'
 gem 'fog-local'
 gem 'fog-openstack'
 gem 'fog-google'
