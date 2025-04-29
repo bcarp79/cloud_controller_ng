@@ -11,7 +11,7 @@ gem 'fog-azure-rm'
 gem 'fog-aws'
 gem 'fog-local'
 gem 'fog-openstack'
-gem 'fog-google'
+gem 'fog-google', '>= 1.25.0'
 gem 'google-api-client', '~> 0.8.6' # required for fog-google
 
 gem 'i18n'
