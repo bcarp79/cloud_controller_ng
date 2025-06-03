@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 
 gem 'addressable'
-gem 'railties'
+gem 'railties', '>= 7.1.0'
 gem 'rake'
 
 # nats wants to lock us to an older version. we already use eventmachine 1.0.9, so do not want a downgrade.
 gem 'eventmachine', '~> 1.0.9'
 
-gem 'fog-azure-rm'
-gem 'fog-aws'
-gem 'fog-local'
-gem 'fog-openstack'
-gem 'fog-google'
+gem 'fog-azure-rm', '>= 0.3.2'
+gem 'fog-aws', '>= 1.2.0'
+gem 'fog-local', '>= 0.4.0'
+gem 'fog-openstack', '>= 0.1.8'
+gem 'fog-google', '>= 0.5.3'
 gem 'google-api-client', '~> 0.8.6' # required for fog-google
 
 gem 'i18n'
@@ -20,28 +20,28 @@ gem 'unf'
 gem 'netaddr'
 gem 'rfc822'
 gem 'sequel'
-gem 'sinatra', '~> 1.4'
-gem 'sinatra-contrib'
+gem 'sinatra', '~> 2.0', '>= 2.0.0'
+gem 'sinatra-contrib', '>= 2.0.0'
 gem 'multi_json'
 gem 'yajl-ruby'
 gem 'mime-types', '~> 2.6.2'
 gem 'membrane', '~> 1.0'
 gem 'httpclient'
-gem 'steno'
+gem 'steno', '>= 1.3.5'
 gem 'cloudfront-signer'
-gem 'vcap_common', '~> 4.0.4'
+gem 'vcap_common', '~> 4.0.5'
 gem 'allowy'
 gem 'loggregator_emitter', '~> 5.0'
 gem 'delayed_job_sequel', git: 'https://github.com/cloudfoundry/delayed_job_sequel.git'
-gem 'thin'
+gem 'thin', '>= 1.7.1'
 gem 'newrelic_rpm', '>= 3.12'
-gem 'clockwork', require: false
+gem 'clockwork', '>= 2.0.1', require: false
 gem 'statsd-ruby'
 gem 'activemodel'
-gem 'actionpack'
-gem 'actionview'
+gem 'actionpack', '>= 7.1.0'
+gem 'actionview', '>= 5.0.0'
 gem 'public_suffix', '~> 1.0'
-gem 'protobuf'
+gem 'protobuf', '>= 3.7.0'
 gem 'net-ssh'
 
 # Requiring this particular commit to get a fix to a race condition when subscribing before a connection is made.
@@ -53,8 +53,8 @@ gem 'nats', git: 'https://github.com/nats-io/ruby-nats', ref: '8571cf9d685b60630
 # firewalls
 gem 'vcap-concurrency', git: 'https://github.com/cloudfoundry/vcap-concurrency.git', ref: '2a5b0179'
 gem 'cf-uaa-lib', '~> 3.7.0'
-gem 'cf-message-bus', '~> 0.3.0'
-gem 'bits_service_client'
+gem 'cf-message-bus', '~> 0.3.5'
+gem 'bits_service_client', '>= 0.3.0'
 
 group :db do
   gem 'mysql2', '0.4.5'
@@ -67,17 +67,17 @@ group :operations do
 end
 
 group :test do
-  gem 'codeclimate-test-reporter', require: false
+  gem 'codeclimate-test-reporter', '>= 1.0.4', require: false
   gem 'fakefs', require: 'fakefs/safe'
   gem 'machinist', '~> 1.0.6'
   gem 'parallel_tests'
-  gem 'rack-test'
+  gem 'rack-test', '>= 2.0.0'
   gem 'rspec', '~> 3.0'
   gem 'rspec-instafail'
   gem 'rspec_api_documentation', git: 'https://github.com/zipmark/rspec_api_documentation.git'
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.5.0'
   gem 'rubocop'
   gem 'timecop'
   gem 'webmock'
@@ -85,6 +85,6 @@ end
 
 group :development do
   gem 'roodi'
-  gem 'ruby-debug-ide'
+  gem 'ruby-debug-ide', '>= 0.6.1'
   gem 'byebug'
 end
