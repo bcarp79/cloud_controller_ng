@@ -1,21 +1,21 @@
 source 'https://rubygems.org'
 
 gem 'addressable'
-gem 'railties'
+gem 'railties', '>= 4.2.8'
 gem 'rake'
 
 # nats wants to lock us to an older version. we already use eventmachine 1.0.9, so do not want a downgrade.
 gem 'eventmachine', '~> 1.0.9'
 
 gem 'fog-azure-rm'
-gem 'fog-aws'
+gem 'fog-aws', '>= 1.2.0'
 gem 'fog-local'
 gem 'fog-openstack'
-gem 'fog-google'
+gem 'fog-google', '>= 0.5.3'
 gem 'google-api-client', '~> 0.8.6' # required for fog-google
 
 gem 'i18n'
-gem 'nokogiri', '~> 1.7.2'
+gem 'nokogiri', '~> 1.18.9'
 gem 'unf'
 gem 'netaddr'
 gem 'rfc822'
@@ -38,10 +38,10 @@ gem 'newrelic_rpm', '>= 3.12'
 gem 'clockwork', require: false
 gem 'statsd-ruby'
 gem 'activemodel'
-gem 'actionpack'
-gem 'actionview'
+gem 'actionpack', '>= 4.2.8'
+gem 'actionview', '>= 4.2.8'
 gem 'public_suffix', '~> 1.0'
-gem 'protobuf'
+gem 'protobuf', '>= 3.7.0'
 gem 'net-ssh'
 
 # Requiring this particular commit to get a fix to a race condition when subscribing before a connection is made.
@@ -77,7 +77,7 @@ group :test do
   gem 'rspec_api_documentation', git: 'https://github.com/zipmark/rspec_api_documentation.git'
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.4.1'
   gem 'rubocop'
   gem 'timecop'
   gem 'webmock'
