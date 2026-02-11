@@ -7,12 +7,12 @@ gem 'rake'
 # nats wants to lock us to an older version. we already use eventmachine 1.0.9, so do not want a downgrade.
 gem 'eventmachine', '~> 1.0.9'
 
-gem 'fog-azure-rm'
+gem 'fog-azure-rm', '>= 0.3.2'
 gem 'fog-aws'
 gem 'fog-local'
 gem 'fog-openstack'
 gem 'fog-google'
-gem 'google-api-client', '~> 0.8.6' # required for fog-google
+gem 'google-api-client', '~> 0.53.0' # required for fog-google
 
 gem 'i18n'
 gem 'nokogiri', '~> 1.7.2'
